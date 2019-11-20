@@ -18,6 +18,7 @@ async function run() {
     const body = core.getInput('body', { required: false });
     const draft = core.getInput('draft', { required: false }) === 'true';
     const prerelease = core.getInput('prerelease', { required: false }) === 'true';
+    const commitish = core.getInput('commitish', { required: false });
 
     // Create a release
     // API Documentation: https://developer.github.com/v3/repos/releases/#create-a-release
@@ -27,6 +28,7 @@ async function run() {
       repo,
       tag_name: tag,
       name: releaseName,
+      target_commitish: commitish,
       body,
       draft,
       prerelease
