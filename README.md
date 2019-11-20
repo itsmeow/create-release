@@ -15,6 +15,7 @@ For more information on these inputs, see the [API Documentation](https://develo
 - `body`: Text describing the contents of the release
 - `draft`: `true` to create a draft (unpublished) release, `false` to create a published one. Default: `false`
 - `prerelease`: `true` to identify the release as a prerelease. `false` to identify the release as a full release. Default `false`
+- `commitish`: See `target_commitish` here: https://developer.github.com/v3/repos/releases/#create-a-release
 
 ### Outputs
 For more information on these outputs, see the [API Documentation](https://developer.github.com/v3/repos/releases/#response-4) for an example of what these outputs look like
@@ -56,6 +57,7 @@ jobs:
             - Second Change
           draft: false
           prerelease: false
+          commitish: master # optional, default master. See target_commitish here https://developer.github.com/v3/repos/releases/#create-a-release
 ```
 
 This will create a [Release](https://help.github.com/en/articles/creating-releases), as well as a [`release` event](https://developer.github.com/v3/activity/events/types/#releaseevent), which could be handled by a third party service, or by GitHub Actions for additional uses, for example the [`@actions/upload-release-asset`](https://www.github.com/actions/upload-release-asset) GitHub Action. This uses the `GITHUB_TOKEN` provided by the [virtual environment](https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#github_token-secret), so no new token is needed.
