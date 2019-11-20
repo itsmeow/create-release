@@ -19,9 +19,6 @@ inputs:
     description: '`true` to identify the release as a prerelease. `false` to identify the release as a full release. Default: `false`'
     required: false
     default: false
-  commitish:
-    description: 'Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository\'s default branch (usually master).'
-    required: false
 outputs:
   id:
     description: 'The ID of the created Release'
