@@ -19,6 +19,8 @@ async function run() {
     const draft = core.getInput('draft', { required: false }) === 'true';
     const prerelease = core.getInput('prerelease', { required: false }) === 'true';
     const commitish = core.getInput('commitish', { required: false });
+    
+    console.log(commitish);
 
     // Create a release
     // API Documentation: https://developer.github.com/v3/repos/releases/#create-a-release
